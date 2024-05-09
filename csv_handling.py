@@ -1,7 +1,11 @@
 import csv
+import os
 
 def read_csv_file(file_path):
   print("Reading csv file...")
+  if not os.path.exists(file_path):
+    with open(file_path, 'w') as file:
+      pass
   with open(file_path, 'r') as file:
     csv_reader = csv.reader(file)
     rows = list(csv_reader)
